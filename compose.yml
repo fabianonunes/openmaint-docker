@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  openmaint:
+    image: localhost/openmaint
+    build: .
+    restart: always
+    ports:
+    - 8080:8080
+
+  openmaint_db:
+    image: postgis/postgis:12-3.3
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+    - openmaint-db:/var/lib/postgresql
+
+volumes:
+  openmaint-db:
