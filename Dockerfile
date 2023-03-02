@@ -13,7 +13,8 @@ RUN set -ex;                                        \
   rm -rf /var/lib/apt/lists/*;                      \
   mkdir conf/cmdbuild;                              \
   curl -fSLo webapps/cmdbuild.war "$CMDBUILD_URL";  \
-  unzip -d webapps/cmdbuild webapps/cmdbuild.war;
+  unzip -d webapps/cmdbuild webapps/cmdbuild.war;   \
+  rm webapps/cmdbuild.war;
 
 RUN set -ex;                           \
   adduser --system --uid 1000 --group  \
