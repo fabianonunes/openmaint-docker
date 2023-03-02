@@ -16,6 +16,11 @@ RUN set -ex;                                        \
   unzip -d webapps/cmdbuild webapps/cmdbuild.war;   \
   rm webapps/cmdbuild.war;
 
+# prevents first restart in a container, assuring postresql
+# driver is on right path
+RUN cp webapps/cmdbuild/WEB-INF/lib_ext/postgresql-42.4.1.jar  \
+  webapps/cmdbuild/WEB-INF/lib/;
+
 RUN set -ex;                           \
   adduser --system --uid 1000 --group  \
     --home "$CATALINA_HOME" tomcat;    \
