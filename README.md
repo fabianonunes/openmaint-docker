@@ -1,4 +1,4 @@
-# openMAIND
+# openMAINT
 
 ## CMDBUILD_DUMP values
 
