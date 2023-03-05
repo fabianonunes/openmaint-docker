@@ -5,6 +5,8 @@ services:
     image: localhost/openmaint
     build: .
     restart: always
+    environment:
+      CMDBUILD_DUMP: demo.dump.xz
     ports:
     - 8080:8080
 
